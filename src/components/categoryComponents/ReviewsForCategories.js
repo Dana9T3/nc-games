@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 
-const ReviewsForCategories = ({ category }) => {
+import ReviewCard from "../RevieCard";
+
+const ReviewsForCategories = ({ category, setReviewId, reviewId }) => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
@@ -16,22 +18,7 @@ const ReviewsForCategories = ({ category }) => {
   return (
     <div className="Reviews">
       {reviews.map((review) => {
-        return (
-          <li className="Review-details" key={review.review_id}>
-            <div>
-              Title: {review.title}
-              <br />
-              Votes: {review.votes}
-              <br />
-              Publisher: {review.owner}
-              <br />
-              Comments: {review.comment_count}
-              <br />
-              Posted: {review.created_at}
-              {/* <img>{review.review_img_url}</img> */}
-            </div>
-          </li>
-        );
+        return <ReviewCard review={review} />;
       })}
     </div>
   );

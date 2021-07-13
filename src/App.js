@@ -7,6 +7,7 @@ import ReviewsForCategories from "./components/categoryComponents/ReviewsForCate
 
 function App() {
   const [category, setCategory] = useState([]);
+  const [reviewId, setReviewId] = useState("");
 
   return (
     <BrowserRouter>
@@ -15,7 +16,11 @@ function App() {
         <Nav setCategory={setCategory} />
         <Switch>
           <Route path="/api/categories">
-            <ReviewsForCategories category={category} />
+            <ReviewsForCategories
+              category={category}
+              setReviewId={setReviewId}
+              reviewId={reviewId}
+            />
           </Route>
         </Switch>
       </div>
