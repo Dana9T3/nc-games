@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Nav = () => {
+const Nav = ({ setCategory }) => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -17,7 +17,16 @@ const Nav = () => {
       {categories.map((category) => {
         return (
           <div key={category.slug}>
-            <Link to={`/api/categories/${category.slug}`}>{category.slug}</Link>
+            <p>
+              <Link
+                to={`/api/categories/${category.slug}`}
+                onClick={() => {
+                  setCategory(category.slug);
+                }}
+              >
+                {category.slug}{" "}
+              </Link>
+            </p>
           </div>
         );
       })}

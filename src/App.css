@@ -13,4 +13,17 @@
 
 .Review-details {
   padding: 10px;
+  list-style: none;
+  border-style: solid;
+  border-width: 3px;
+  border-color: orangered;
+}
+
+.Reviews {
+  text-align: left;
+}
+
+.img {
+  max-width: 200px;
+  max-height: 200px;
 }
