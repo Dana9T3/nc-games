@@ -3,6 +3,11 @@ import AddComment from "./AddComment";
 
 const Comments = ({ reviewId }) => {
   const [comments, setComments] = useState([]);
+  const [addComment, setAddComment] = useState(false);
+
+  const toggleAddComment = () => {
+    setAddComment((currComment) => !currComment);
+  };
 
   useEffect(() => {
     fetch(
@@ -30,12 +35,23 @@ const Comments = ({ reviewId }) => {
             </div>
           );
         })}
-        <button className="AddComment" onClick={<AddComment />}>
+        <button className="AddComment" onClick={toggleAddComment}>
           Add Comment
         </button>
+        {addComment ? <AddComment /> : null}
       </div>
     );
-  } else return <p className="Comments">No comments posted.</p>;
+  } else
+    return (
+      <div className="Comments">
+        No comments posted.
+        <br />
+        <button className="AddComment" onClick={toggleAddComment}>
+          Add Comment
+        </button>
+        {addComment ? <AddComment reviewId={reviewId} /> : null}
+      </div>
+    );
 };
 
 export default Comments;

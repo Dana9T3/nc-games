@@ -50,3 +50,7 @@
 .Disabled {
   pointer-events: none;
 }
+
+.CommentBody {
+  max-height: 200px;
+}

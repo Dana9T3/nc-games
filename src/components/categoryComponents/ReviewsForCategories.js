@@ -11,7 +11,6 @@ const ReviewsForCategories = ({ category }) => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.reviews);
         setReviews(data.reviews);
       });
   }, [category]);
