@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import ReviewCard from "../RevieCard";
 
-const ReviewsForCategories = ({ category, setReviewId, reviewId }) => {
+const ReviewsForCategories = ({ category }) => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
@@ -11,12 +11,13 @@ const ReviewsForCategories = ({ category, setReviewId, reviewId }) => {
     )
       .then((response) => response.json())
       .then((data) => {
+        console.log(data.reviews);
         setReviews(data.reviews);
       });
   }, [category]);
 
   return (
-    <div className="Reviews">
+    <div id={reviews.review_id} className="Reviews">
       {reviews.map((review) => {
         return <ReviewCard review={review} />;
       })}

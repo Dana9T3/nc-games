@@ -17,6 +17,7 @@
   border-style: solid;
   border-width: 3px;
   border-color: orangered;
+  border-radius: 10px;
 }
 
 .Reviews {
@@ -26,4 +27,26 @@
 .img {
   max-width: 200px;
   max-height: 200px;
+}
+
+.SingleComment {
+  padding: 10px;
+  border-style: solid;
+  border-color: darkmagenta;
+  border-width: 2px;
+  border-radius: 10px;
+}
+
+.Comments {
+  background-color: cornsilk;
+  font-size: small;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.VoteButton {
+}
+
+.Disabled {
+  pointer-events: none;
 }

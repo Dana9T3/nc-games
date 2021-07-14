@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
+import AddComment from "./AddComment";
 
 const Comments = ({ reviewId }) => {
-  console.log(reviewId);
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
@@ -10,17 +10,16 @@ const Comments = ({ reviewId }) => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setComments(data.comments);
       });
   }, [reviewId]);
 
   if (comments) {
     return (
-      <div>
+      <div className="Comments">
         {comments.map((comment) => {
           return (
-            <div>
+            <div id={reviewId} className="SingleComment">
               Author: {comment.author}
               <br />
               Review: {comment.body}
@@ -31,9 +30,12 @@ const Comments = ({ reviewId }) => {
             </div>
           );
         })}
+        <button className="AddComment" onClick={<AddComment />}>
+          Add Comment
+        </button>
       </div>
     );
-  } else return <p>No comments posted.</p>;
+  } else return <p className="Comments">No comments posted.</p>;
 };
 
 export default Comments;
