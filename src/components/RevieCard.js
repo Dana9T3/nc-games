@@ -6,6 +6,7 @@ const ReviewCard = ({ review }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [singleReview, setSingleReview] = useState({});
+  const [votes, setVotes] = useState(singleReview.votes);
 
   useEffect(() => {
     fetch(
@@ -23,6 +24,7 @@ const ReviewCard = ({ review }) => {
 
   const isClicked = () => {
     setClicked((currClicked) => !currClicked);
+    setVotes((currVotes) => currVotes + 1);
   };
 
   return (
@@ -48,7 +50,13 @@ const ReviewCard = ({ review }) => {
         <br />
         Posted: {singleReview.created_at}
         <br />
-        {<img className="img" src={singleReview.review_img_url}></img>}
+        {
+          <img
+            className="img"
+            src={singleReview.review_img_url}
+            alt="non"
+          ></img>
+        }
       </div>
     </li>
   );

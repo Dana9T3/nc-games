@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-const AddComment = ({ reviewId }) => {
+const AddComment = ({ reviewId, comments, setComments }) => {
   const [postUsername, setPostUsername] = useState("");
   const [postComment, setPostComment] = useState("");
 
-  console.log(reviewId);
+  console.log(comments);
 
   const HandleSubmit = (event) => {
     event.preventDefault();
-    console.log(postUsername);
-    console.log(postComment);
+    // console.log(postUsername);
+    // console.log(postComment);
 
     fetch(
       `https://my-nc-games-app.herokuapp.com/api/reviews/${reviewId}/comments`,
@@ -21,8 +21,9 @@ const AddComment = ({ reviewId }) => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        //response comes back invalid type or not found? ID not passing through correctly?
+        console.log(data.comment);
+        const newComments = [data.comment[0], ...comments];
+        setComments(newComments);
       });
   };
   return (

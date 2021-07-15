@@ -4,11 +4,11 @@ import AddComment from "./AddComment";
 const Comments = ({ reviewId }) => {
   const [comments, setComments] = useState([]);
   const [addComment, setAddComment] = useState(false);
-  console.log(reviewId);
+
   const toggleAddComment = () => {
     setAddComment((currComment) => !currComment);
   };
-
+  console.log(comments);
   useEffect(() => {
     fetch(
       `https://my-nc-games-app.herokuapp.com/api/reviews/${reviewId}/comments`
@@ -38,7 +38,13 @@ const Comments = ({ reviewId }) => {
         <button className="AddComment" onClick={toggleAddComment}>
           Add Comment
         </button>
-        {addComment ? <AddComment reviewId={reviewId} /> : null}
+        {addComment ? (
+          <AddComment
+            reviewId={reviewId}
+            comments={comments}
+            setComments={setComments}
+          />
+        ) : null}
       </div>
     );
   } else

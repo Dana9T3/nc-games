@@ -6,6 +6,11 @@
   grid-template-rows: min-content min-content auto;
 }
 
+.Search {
+  background-color: coral;
+  padding: 10px;
+}
+
 .Nav {
   background-color: chartreuse;
   font-size: small;
