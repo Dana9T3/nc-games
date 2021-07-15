@@ -1,31 +1,32 @@
 import { useState, useEffect } from "react";
 
-const AddComment = (reviewId) => {
+const AddComment = ({ reviewId }) => {
   const [postUsername, setPostUsername] = useState("");
   const [postComment, setPostComment] = useState("");
+
   console.log(reviewId);
 
-  const HandleSubmit = (postUsername, postComment) => {
-    // console.log(postUsername);
-    // console.log(postComment);
-    useEffect(() => {
-      fetch(
-        `https://my-nc-games-app.herokuapp.com/api/reviews/${reviewId}/comments`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ username: postUsername, body: postComment }),
-        }
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          //response comes back invalid type or not found? ID not passing through correctly?
-        });
-    });
+  const HandleSubmit = (event) => {
+    event.preventDefault();
+    console.log(postUsername);
+    console.log(postComment);
+
+    fetch(
+      `https://my-nc-games-app.herokuapp.com/api/reviews/${reviewId}/comments`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: postUsername, body: postComment }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        //response comes back invalid type or not found? ID not passing through correctly?
+      });
   };
   return (
-    <form onSubmit={HandleSubmit(postUsername, postComment)}>
+    <form onSubmit={HandleSubmit}>
       <label htmlFor="Username">Username: </label>
       <input
         onChange={(event) => {

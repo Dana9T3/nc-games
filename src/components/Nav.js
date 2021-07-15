@@ -14,20 +14,19 @@ const Nav = ({ setCategory }) => {
 
   return (
     <div className="Nav">
+      <p>Choose a Category</p>
       {categories.map((category) => {
         return (
-          <div key={category.slug}>
-            <p>
-              <Link
-                to={`/api/categories/${category.slug}`}
-                onClick={() => {
-                  setCategory(category.slug);
-                }}
-              >
-                {category.slug}{" "}
-              </Link>
-            </p>
-          </div>
+          <span key={category.slug} className="SingleCat">
+            <Link
+              to={`/api/categories/${category.slug}`}
+              onClick={() => {
+                setCategory(category.slug);
+              }}
+            >
+              {category.slug}{" "}
+            </Link>
+          </span>
         );
       })}
     </div>

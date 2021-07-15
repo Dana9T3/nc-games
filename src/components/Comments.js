@@ -4,7 +4,7 @@ import AddComment from "./AddComment";
 const Comments = ({ reviewId }) => {
   const [comments, setComments] = useState([]);
   const [addComment, setAddComment] = useState(false);
-
+  console.log(reviewId);
   const toggleAddComment = () => {
     setAddComment((currComment) => !currComment);
   };
@@ -38,7 +38,7 @@ const Comments = ({ reviewId }) => {
         <button className="AddComment" onClick={toggleAddComment}>
           Add Comment
         </button>
-        {addComment ? <AddComment /> : null}
+        {addComment ? <AddComment reviewId={reviewId} /> : null}
       </div>
     );
   } else

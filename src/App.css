@@ -9,6 +9,11 @@
 .Nav {
   background-color: chartreuse;
   font-size: small;
+  padding: 10px;
+}
+
+.SingleCat {
+  padding: 10px;
 }
 
 .Review-details {
@@ -22,6 +27,7 @@
 
 .Reviews {
   text-align: left;
+  padding: 20px;
 }
 
 .img {
@@ -53,4 +59,9 @@
 
 .CommentBody {
   max-height: 200px;
+}
+
+.img {
+  max-height: 100px;
+  max-width: 100px;
 }

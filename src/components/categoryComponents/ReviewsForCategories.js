@@ -16,7 +16,7 @@ const ReviewsForCategories = ({ category }) => {
   }, [category]);
 
   return (
-    <div id={reviews.review_id} className="Reviews">
+    <div key={reviews.review_id} className="Reviews">
       {reviews.map((review) => {
         return <ReviewCard review={review} />;
       })}
