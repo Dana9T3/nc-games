@@ -19,7 +19,7 @@ const Nav = ({ setCategory }) => {
         return (
           <span key={category.slug} className="SingleCat">
             <Link
-              to={`/api/categories/${category.slug}`}
+              to={`/api/categories`}
               onClick={() => {
                 setCategory(category.slug);
               }}

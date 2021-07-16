@@ -1,37 +1,28 @@
 import { useState } from "react";
-//import ReviewCard from "./RevieCard";
-//import SingleGame from "./SingleGame";
 
-const Search = () => {
+const Search = ({ setReviews }) => {
   const [search, setSearch] = useState("");
+  const [allReviews, setAllReviews] = useState([]);
 
-  const FindMatch = (event) => {
-    event.preventDefault();
+  fetch(`https://my-nc-games-app.herokuapp.com/api/reviews/`)
+    .then((response) => response.json())
+    .then((data) => {
+      setAllReviews(data.reviews);
+    });
 
-    fetch(`https://my-nc-games-app.herokuapp.com/api/reviews/`)
-      .then((response) => response.json())
-      .then((data) => {
-        const reviews = data.reviews;
-        //console.log(reviews);
-        return reviews.find((review) => {
-          const lcSearch = search.toLowerCase();
-          const lcTitle = review.title.toLowerCase();
-          // console.log(lcSearch);
-          // console.log(lcTitle);
-          if (lcTitle === lcSearch) {
-            console.log(review);
-            // <ReviewCard review={review} />;
-          } else {
-            console.log("no");
-          }
-        });
-      });
+  const FindGame = () => {
+    const matchedGame = allReviews.filter((game) => {
+      search.toLowerCase();
+      game.title.toLowerCase();
+      console.log(game);
+    });
+    setReviews(matchedGame);
   };
 
   return (
     <div className="Search">
       <p>Search</p>
-      <form onSubmit={FindMatch}>
+      <form onSubmit={FindGame}>
         <label htmlFor="Game">Enter a Game: </label>
         <input
           type="text"

@@ -7,13 +7,12 @@ const ReviewCard = ({ review }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [singleReview, setSingleReview] = useState({});
-  const [votes, setVotes] = useState(singleReview.votes);
+  const [votes, setVotes] = useState(review.votes);
 
   useEffect(() => {
     fetch(
       `https://my-nc-games-app.herokuapp.com/api/reviews/${review.review_id}`
     )
-      //reviewByReviewId(review)
       .then((response) => response.json())
       .then((data) => {
         setSingleReview(data.review[0]);
@@ -27,7 +26,6 @@ const ReviewCard = ({ review }) => {
   const isClicked = () => {
     setClicked((currClicked) => !currClicked);
     setVotes((currVotes) => currVotes + 1);
-    document.getElementById("voteButton").disabled = true;
   };
 
   return (
@@ -35,8 +33,13 @@ const ReviewCard = ({ review }) => {
       <div>
         Title: {singleReview.title}
         <br />
-        Votes: {singleReview.votes}
-        <button id="voteButton" className="VoteButton" onClick={isClicked}>
+        Votes: {votes}
+        <button
+          id="voteButton"
+          className="VoteButton"
+          onClick={isClicked}
+          disabled={clicked}
+        >
           {clicked ? "Voted" : "Upvote!"}
         </button>
         {clicked ? <Votes reviewId={singleReview.review_id} /> : null}

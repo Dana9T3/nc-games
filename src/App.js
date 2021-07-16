@@ -8,20 +8,20 @@ import Search from "./components/Search";
 
 function App() {
   const [category, setCategory] = useState([]);
-  const [reviewId, setReviewId] = useState("");
+  const [reviews, setReviews] = useState([]);
 
   return (
     <BrowserRouter>
       <div className="App">
         <Header />
-        <Search />
+        <Search setReviews={setReviews} />
         <Nav setCategory={setCategory} />
         <Switch>
           <Route path="/api/categories">
             <ReviewsForCategories
               category={category}
-              setReviewId={setReviewId}
-              reviewId={reviewId}
+              reviews={reviews}
+              setReviews={setReviews}
             />
           </Route>
         </Switch>

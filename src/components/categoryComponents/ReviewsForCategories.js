@@ -3,9 +3,7 @@ import { useEffect, useState } from "react";
 import ReviewCard from "../RevieCard";
 //import fetchCategories from "../apiCalls";
 
-const ReviewsForCategories = ({ category }) => {
-  const [reviews, setReviews] = useState([]);
-
+const ReviewsForCategories = ({ category, reviews, setReviews }) => {
   useEffect(() => {
     fetch(
       `https://my-nc-games-app.herokuapp.com/api/reviews?category=${category}`
@@ -21,7 +19,7 @@ const ReviewsForCategories = ({ category }) => {
   return (
     <div key={reviews.review_id} className="Reviews">
       {reviews.map((review) => {
-        return <ReviewCard review={review} />;
+        return <ReviewCard review={review} key={review.review_id} />;
       })}
     </div>
   );
