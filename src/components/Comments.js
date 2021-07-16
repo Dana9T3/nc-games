@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import AddComment from "./AddComment";
+//import { fetchCommentsByReviewId } from "./apiCalls";
 
 const Comments = ({ reviewId }) => {
   const [comments, setComments] = useState([]);
@@ -13,6 +14,7 @@ const Comments = ({ reviewId }) => {
     fetch(
       `https://my-nc-games-app.herokuapp.com/api/reviews/${reviewId}/comments`
     )
+      //fetchCommentsByReviewId(reviewId)
       .then((response) => response.json())
       .then((data) => {
         setComments(data.comments);
@@ -24,7 +26,11 @@ const Comments = ({ reviewId }) => {
       <div className="Comments">
         {comments.map((comment) => {
           return (
-            <div id={reviewId} className="SingleComment">
+            <div
+              key={comment.comment_id}
+              id={reviewId}
+              className="SingleComment"
+            >
               Author: {comment.author}
               <br />
               Review: {comment.body}

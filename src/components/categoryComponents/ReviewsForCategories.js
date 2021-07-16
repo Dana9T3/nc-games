@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import ReviewCard from "../RevieCard";
+//import fetchCategories from "../apiCalls";
 
 const ReviewsForCategories = ({ category }) => {
   const [reviews, setReviews] = useState([]);
@@ -9,8 +10,10 @@ const ReviewsForCategories = ({ category }) => {
     fetch(
       `https://my-nc-games-app.herokuapp.com/api/reviews?category=${category}`
     )
+      //fetchCategories(category)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         setReviews(data.reviews);
       });
   }, [category]);

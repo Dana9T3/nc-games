@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Comments from "./Comments";
 import Votes from "./Votes";
+//import reviewByReviewId from "./apiCalls";
 
 const ReviewCard = ({ review }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +13,7 @@ const ReviewCard = ({ review }) => {
     fetch(
       `https://my-nc-games-app.herokuapp.com/api/reviews/${review.review_id}`
     )
+      //reviewByReviewId(review)
       .then((response) => response.json())
       .then((data) => {
         setSingleReview(data.review[0]);
@@ -25,6 +27,7 @@ const ReviewCard = ({ review }) => {
   const isClicked = () => {
     setClicked((currClicked) => !currClicked);
     setVotes((currVotes) => currVotes + 1);
+    document.getElementById("voteButton").disabled = true;
   };
 
   return (
@@ -33,7 +36,7 @@ const ReviewCard = ({ review }) => {
         Title: {singleReview.title}
         <br />
         Votes: {singleReview.votes}
-        <button className="VoteButton" onClick={isClicked}>
+        <button id="voteButton" className="VoteButton" onClick={isClicked}>
           {clicked ? "Voted" : "Upvote!"}
         </button>
         {clicked ? <Votes reviewId={singleReview.review_id} /> : null}

@@ -1,5 +1,5 @@
-const SingleGame = ({ review }) => {
-  console.log(review);
+const SingleGame = ({ search }) => {
+  console.log(search);
   return <p>hi</p>;
   // return (
   //   <li className="Review-details" key={singleReview.review_id}>

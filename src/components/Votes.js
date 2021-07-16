@@ -11,7 +11,7 @@ const Votes = ({ reviewId }) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        return data.review;
       });
   });
   return null;
