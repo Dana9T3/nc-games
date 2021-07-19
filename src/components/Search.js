@@ -1,29 +1,32 @@
 import { useState } from "react";
+import SearchResult from "./SearchResult";
 
 const Search = ({ setReviews }) => {
   const [search, setSearch] = useState("");
-  const [allReviews, setAllReviews] = useState([]);
 
-  fetch(`https://my-nc-games-app.herokuapp.com/api/reviews/`)
-    .then((response) => response.json())
-    .then((data) => {
-      setAllReviews(data.reviews);
-    });
+  const fetchReviews = (event) => {
+    event.preventDefault();
+    fetch(`https://my-nc-games-app.herokuapp.com/api/reviews/`)
+      .then((response) => response.json())
+      .then((data) => {
+        const matchedGame = data.reviews.filter((game) => {
+          const lcSearch = search.toLowerCase();
+          const lcTitle = game.title.toLowerCase();
 
-  const FindGame = () => {
-    const matchedGame = allReviews.filter((game) => {
-      search.toLowerCase();
-      game.title.toLowerCase();
-      console.log(game);
-    });
-    setReviews(matchedGame);
+          if (lcTitle.includes(lcSearch)) return game;
+          else return null;
+        });
+
+        setReviews(matchedGame);
+        <SearchResult matchedGame={matchedGame} />;
+      });
   };
 
   return (
     <div className="Search">
       <p>Search</p>
-      <form onSubmit={FindGame}>
-        <label htmlFor="Game">Enter a Game: </label>
+      <form onSubmit={fetchReviews}>
+        <label htmlFor="Game">Enter a Game Title: </label>
         <input
           type="text"
           id="Game"

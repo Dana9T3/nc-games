@@ -3,7 +3,7 @@ import Comments from "./Comments";
 import Votes from "./Votes";
 //import reviewByReviewId from "./apiCalls";
 
-const ReviewCard = ({ review }) => {
+const ReviewCard = ({ review, setReviews }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [singleReview, setSingleReview] = useState({});
@@ -15,9 +15,10 @@ const ReviewCard = ({ review }) => {
     )
       .then((response) => response.json())
       .then((data) => {
+        //console.log(data);
         setSingleReview(data.review[0]);
       });
-  }, [review]);
+  }, [review, setReviews]);
 
   const toggleIsOpen = () => {
     setIsOpen((currOpen) => !currOpen);
@@ -31,7 +32,10 @@ const ReviewCard = ({ review }) => {
   return (
     <li className="Review-details" key={singleReview.review_id}>
       <div>
-        Title: {singleReview.title}
+        Title:
+        <br />
+        {singleReview.title}
+        <br />
         <br />
         Votes: {votes}
         <button
@@ -44,9 +48,16 @@ const ReviewCard = ({ review }) => {
         </button>
         {clicked ? <Votes reviewId={singleReview.review_id} /> : null}
         <br />
-        Review: {singleReview.review_body}
         <br />
-        Publisher: {singleReview.owner}
+        Review:
+        <br />
+        {singleReview.review_body}
+        <br />
+        <br />
+        Publisher:
+        <br />
+        {singleReview.owner}
+        <br />
         <br />
         Comments: {singleReview.comment_count}
         <button onClick={toggleIsOpen}>
@@ -55,6 +66,7 @@ const ReviewCard = ({ review }) => {
         {isOpen ? <Comments reviewId={singleReview.review_id} /> : null}
         <br />
         Posted: {singleReview.created_at}
+        <br />
         <br />
         {
           <img

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import ReviewCard from "../RevieCard";
 //import fetchCategories from "../apiCalls";
@@ -11,15 +11,20 @@ const ReviewsForCategories = ({ category, reviews, setReviews }) => {
       //fetchCategories(category)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setReviews(data.reviews);
       });
-  }, [category]);
+  }, [category, setReviews]);
 
   return (
     <div key={reviews.review_id} className="Reviews">
       {reviews.map((review) => {
-        return <ReviewCard review={review} key={review.review_id} />;
+        return (
+          <ReviewCard
+            review={review}
+            setReviews={setReviews}
+            key={review.review_id}
+          />
+        );
       })}
     </div>
   );
