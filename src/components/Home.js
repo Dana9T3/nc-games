@@ -7,7 +7,7 @@ import ReviewsForCategories from "./components/categoryComponents/ReviewsForCate
 import Search from "./components/Search";
 import Users from "./components/Users";
 
-function App() {
+function Home() {
 	const [category, setCategory] = useState([]);
 	const [reviews, setReviews] = useState([]);
 
@@ -50,4 +50,4 @@ function App() {
 	);
 }
 
-export default App;
+export default Home;

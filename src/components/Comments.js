@@ -9,7 +9,7 @@ const Comments = ({ reviewId }) => {
   const toggleAddComment = () => {
     setAddComment((currComment) => !currComment);
   };
-  console.log(comments);
+
   useEffect(() => {
     fetch(
       `https://my-nc-games-app.herokuapp.com/api/reviews/${reviewId}/comments`

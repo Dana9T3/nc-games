@@ -1,122 +1,129 @@
 .App {
-  text-align: center;
-  background-color: rgb(116, 156, 194);
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: max-content max-content auto;
-  min-height: 100vh;
+	text-align: center;
+	background-color: rgb(116, 156, 194);
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: min-content min-content auto;
+	min-height: 100vh;
 }
 
 .Search {
-  background-color: rgb(216, 188, 243);
-  padding: 10px;
-  border-style: solid;
-  border-width: 3px;
-  border-color: rgb(173, 56, 219);
-  border-radius: 10px;
-  margin: 10px;
-  letter-spacing: 1px;
+	background-color: rgb(216, 188, 243);
+	padding: 10px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: rgb(173, 56, 219);
+	border-radius: 10px;
+	margin: 10px;
+	letter-spacing: 1px;
 }
 
 .Nav {
-  background-color: rgb(216, 188, 243);
-  font-size: small;
-  padding: 10px;
-  border-style: solid;
-  border-width: 3px;
-  border-color: rgb(173, 56, 219);
-  border-radius: 10px;
-  margin: 10px;
-  letter-spacing: 1px;
+	background-color: rgb(216, 188, 243);
+	font-size: small;
+	padding: 10px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: rgb(173, 56, 219);
+	border-radius: 10px;
+	margin: 10px;
+	letter-spacing: 1px;
+	max-height: 10vh;
 }
 
 .SingleCat {
-  padding: 10px;
-  color: rgb(73, 204, 255);
-  text-decoration: none;
+	padding: 10px;
+	color: rgb(73, 204, 255);
+	text-decoration: none;
 }
 
 .Review-details {
-  background-color: rgb(216, 188, 243);
-  padding: 10px;
-  list-style: none;
-  border-style: solid;
-  border-width: 3px;
-  border-color: rgb(173, 56, 219);
-  border-radius: 10px;
-  margin: 10px;
-  letter-spacing: 1px;
+	background-color: rgb(216, 188, 243);
+	padding: 10px;
+	list-style: none;
+	border-style: solid;
+	border-width: 3px;
+	border-color: rgb(173, 56, 219);
+	border-radius: 10px;
+	margin: 10px;
+	letter-spacing: 1px;
 }
 
 .Reviews {
-  text-align: left;
-  padding: 20px;
+	text-align: left;
+	padding: 20px;
 }
 
 .img {
-  max-width: 200px;
-  max-height: 200px;
+	max-width: 200px;
+	max-height: 200px;
 }
 
 .SingleComment {
-  background-color: rgb(255, 255, 255);
-  padding: 10px;
-  border-style: solid;
-  border-color: rgb(173, 56, 219);
-  border-width: 2px;
-  border-radius: 10px;
-  margin: 10px;
+	background-color: rgb(255, 255, 255);
+	padding: 10px;
+	border-style: solid;
+	border-color: rgb(173, 56, 219);
+	border-width: 2px;
+	border-radius: 10px;
+	margin: 10px;
 }
 
 .Comments {
-  background-color: rgb(116, 156, 194);
-  font-size: small;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 10px;
-}
-
-.user {
-  text-align: right;
-  margin: 10px;
+	background-color: rgb(116, 156, 194);
+	font-size: small;
+	padding: 10px;
+	border-radius: 10px;
+	margin: 10px;
 }
 
 .top {
-  letter-spacing: 1px;
+	display: inline-flex;
+}
+
+.header {
+	letter-spacing: 4px;
+	margin: auto;
+	text-align: center;
+}
+
+.login {
+	text-align: right;
+	padding: 10px;
 }
 
 .Disabled {
-  pointer-events: none;
+	pointer-events: none;
 }
 
 .CommentBody {
-  max-height: 200px;
+	max-height: 200px;
 }
 
 .img {
-  max-height: 100px;
-  max-width: 100px;
+	max-height: 100px;
+	max-width: 100px;
 }
 
 .LogoImage {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 @media only screen and (min-width: 1024px) {
-  .Search {
-    max-width: 800px;
-    margin: auto;
-    margin-bottom: 30px;
-  }
-  .Nav {
-    max-width: 500px;
-    margin: auto;
-  }
-  .Reviews {
-    max-width: 700px;
-    margin: auto;
-    margin-bottom: 10px;
-  }
+	.Search {
+		max-width: 800px;
+		margin: auto;
+		margin-bottom: 30px;
+	}
+	.Nav {
+		max-width: 500px;
+		margin: auto;
+	}
+	.Reviews {
+		max-width: 700px;
+		margin: auto;
+		margin-bottom: 10px;
+	}
 }

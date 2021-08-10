@@ -1,6 +1,6 @@
 const SearchResult = ({ matchedGame }) => {
   if (matchedGame) {
-    return <p>hi</p>;
+    console.log("inSearchResult");
   } else return null;
 };
 
