@@ -4,7 +4,7 @@ Hello and welcome to my NC Games app. This is a website designed for users to se
 
 I built this App in 10 days, 5 on backend, 5 on frontend. The app was built using React with functional components. The backend allows for plenty more functionality so watch this space for improvements!
 
-You can view the hosted version here --> myncgames.netlify.app
+You can view the hosted version here --> [myncgames.netlify.app](myncgames.netlify.app)
 
 # Getting Started with Create React App
 
