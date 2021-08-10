@@ -1,3 +1,11 @@
+# My NC Games Web App
+
+Hello and welcome to my NC Games app. This is a website designed for users to search for reviews of board games. Users can votes up comments the like, or add their own comments.
+
+I built this App in 10 days, 5 on backend, 5 on frontend. The app was built using React with functional components. The backend allows for plenty more functionality so watch this space for improvements!
+
+You can view the hosted version here --> myncgames.netlify.app
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
