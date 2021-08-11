@@ -77,6 +77,26 @@
 	margin: 10px;
 }
 
+.UserText {
+}
+
+.UsersList {
+	margin: auto;
+	display: flex;
+	text-align: center;
+	padding: 20px;
+}
+
+.SingleUser {
+	display: flex;
+	margin: auto;
+	padding: 5px;
+}
+
+.Profile {
+	padding: 10px;
+}
+
 .top {
 	display: inline-flex;
 }

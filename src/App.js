@@ -6,10 +6,12 @@ import Nav from "./components/Nav";
 import ReviewsForCategories from "./components/categoryComponents/ReviewsForCategories";
 import Search from "./components/Search";
 import Users from "./components/Users";
+import { UserContext } from "./contexts/Users";
 
 function App() {
 	const [category, setCategory] = useState([]);
 	const [reviews, setReviews] = useState([]);
+	const [loggedInUser, setLoggedInUser] = useState("");
 
 	useEffect(() => {
 		fetch(
@@ -21,31 +23,33 @@ function App() {
 			});
 	}, [category, setReviews]);
 
+	console.log(loggedInUser.length);
+
 	return (
 		<BrowserRouter>
-			<div className="App">
-				<Header />
+			<UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
+				<div className="App">
+					<Header />
 
-				<Search setReviews={setReviews} />
-				<Nav setCategory={setCategory} />
-				<Switch>
-					<Route exact path="/users">
-						<Users />
-					</Route>
-					<Route exact path="/reviews">
-						<ReviewsForCategories
-							category={category}
-							reviews={reviews}
-							setReviews={setReviews}
-						/>
-					</Route>
-				</Switch>
-				<img
-					className="LogoImage"
-					src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_lMJNpLxMrm1QcrSD8ENEDXWE1tnQUb24PA&usqp=CAU"
-					alt="Games Logos"
-				></img>
-			</div>
+					<Users />
+					<Search setReviews={setReviews} />
+					<Nav setCategory={setCategory} />
+					<Switch>
+						<Route exact path="/reviews">
+							<ReviewsForCategories
+								category={category}
+								reviews={reviews}
+								setReviews={setReviews}
+							/>
+						</Route>
+					</Switch>
+					<img
+						className="LogoImage"
+						src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_lMJNpLxMrm1QcrSD8ENEDXWE1tnQUb24PA&usqp=CAU"
+						alt="Games Logos"
+					></img>
+				</div>
+			</UserContext.Provider>
 		</BrowserRouter>
 	);
 }
